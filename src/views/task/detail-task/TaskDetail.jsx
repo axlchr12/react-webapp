@@ -12,22 +12,23 @@ import {
   CRow,
 } from '@coreui/react'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import ButtonCustom from 'src/components/custom/ButtonCustom'
 
-const AddTask = () => {
-  const [urlLink, setUrlLink] = useState('')
+const TaskDetail = () => {
+  const [urlLink, setUrlLink] = useState('http://localhost:3000/task-list/detail?id=1')
   const [isloading, setIsLoading] = useState(true)
   let navigate = useNavigate()
+  const [searchParams] = useSearchParams()
 
   return (
     <>
       <CRow className="d-flex justify-content-center align-items-center flex-wrap">
-        <h3 className="fw-bold">Add New Task</h3>
+        <h3 className="fw-bold">Update Task ID: {searchParams.get('id')}</h3>
         <CCol xs={6}>
           <CCard>
             <CCardBody>
-              <CCardTitle className="fw-bold">Form Add New Task</CCardTitle>
+              <CCardTitle className="fw-bold">Form Update Task</CCardTitle>
               <CCardText>
                 <CForm className="mt-4 mb-3">
                   <CFormLabel>URL LINK</CFormLabel>
@@ -35,6 +36,7 @@ const AddTask = () => {
                     type="text"
                     placeholder="input URL link"
                     onInput={(e) => setUrlLink(e.target.value)}
+                    value="http://localhost:3000/task-list/detail?id=1"
                   />
                   {urlLink.length >= 8 && (
                     <>
@@ -51,9 +53,10 @@ const AddTask = () => {
                         type="number"
                         placeholder="input total likes"
                         pattern="[0-9]{1,5}"
+                        value={10}
                       />
                       <CFormLabel className="mt-3">NOTES</CFormLabel>
-                      <CFormTextarea rows={5}></CFormTextarea>
+                      <CFormTextarea rows={5} value="Do 100 likes on Instagram"></CFormTextarea>
                     </>
                   )}
                 </CForm>
@@ -68,7 +71,7 @@ const AddTask = () => {
                     isloading={isloading}
                   />
                   <ButtonCustom
-                    label="Proceed"
+                    label="Update"
                     typeButton="submit"
                     classList="btn btn-outline-primary"
                     isloading={isloading}
@@ -83,4 +86,4 @@ const AddTask = () => {
   )
 }
 
-export default AddTask
+export default TaskDetail

@@ -4,6 +4,7 @@ import React from 'react'
 const Dashboard = () => {
   return (
     <CRow className="d-flex justify-content-center align-items-center flex-wrap">
+      <h3 className="fw-bold">Dashboard</h3>
       <CCol xs={3}>
         <CCard>
           <CCardBody>
