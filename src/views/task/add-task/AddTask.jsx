@@ -16,7 +16,6 @@ import { useNavigate } from 'react-router-dom'
 import ButtonCustom from 'src/components/custom/ButtonCustom'
 
 const AddTask = () => {
-  const [urlLink, setUrlLink] = useState('')
   const [isloading, setIsLoading] = useState(true)
   let navigate = useNavigate()
 
@@ -31,50 +30,38 @@ const AddTask = () => {
               <CCardText>
                 <CForm className="mt-4 mb-3">
                   <CFormLabel>URL LINK</CFormLabel>
-                  <CFormInput
-                    type="text"
-                    placeholder="input URL link"
-                    onInput={(e) => setUrlLink(e.target.value)}
+                  <CFormInput type="text" placeholder="input URL link" />
+
+                  <CFormLabel className="mt-3">SERVICE TYPE</CFormLabel>
+                  <CFormSelect
+                    aria-label="Default select example"
+                    options={[
+                      { label: '---', value: '' },
+                      { label: 'Likes', value: '1' },
+                    ]}
                   />
-                  {urlLink.length >= 8 && (
-                    <>
-                      <CFormLabel className="mt-3">SERVICE TYPE</CFormLabel>
-                      <CFormSelect
-                        aria-label="Default select example"
-                        options={[
-                          { label: 'Select Service Type', value: '' },
-                          { label: 'Likes', value: '1' },
-                        ]}
-                      />
-                      <CFormLabel className="mt-3">TOTAL LIKES</CFormLabel>
-                      <CFormInput
-                        type="number"
-                        placeholder="input total likes"
-                        pattern="[0-9]{1,5}"
-                      />
-                      <CFormLabel className="mt-3">NOTES</CFormLabel>
-                      <CFormTextarea rows={5}></CFormTextarea>
-                    </>
-                  )}
+                  <CFormLabel className="mt-3">TOTAL LIKES</CFormLabel>
+                  <CFormInput type="number" placeholder="input total likes" pattern="[0-9]{1,5}" />
+                  <CFormLabel className="mt-3">NOTES</CFormLabel>
+                  <CFormTextarea rows={5}></CFormTextarea>
                 </CForm>
               </CCardText>
-              {urlLink.length >= 8 && (
-                <div className="d-flex justify-content-end">
-                  <ButtonCustom
-                    label="Cancel"
-                    typeButton="button"
-                    customFunction={() => navigate(-1)}
-                    classList="btn btn-outline-danger mx-1"
-                    isloading={isloading}
-                  />
-                  <ButtonCustom
-                    label="Proceed"
-                    typeButton="submit"
-                    classList="btn btn-outline-primary"
-                    isloading={isloading}
-                  />
-                </div>
-              )}
+
+              <div className="d-flex justify-content-end">
+                <ButtonCustom
+                  label="Cancel"
+                  typeButton="button"
+                  customFunction={() => navigate(-1)}
+                  classList="btn btn-outline-danger mx-1"
+                  isloading={isloading}
+                />
+                <ButtonCustom
+                  label="Proceed"
+                  typeButton="submit"
+                  classList="btn btn-outline-primary"
+                  isloading={isloading}
+                />
+              </div>
             </CCardBody>
           </CCard>
         </CCol>

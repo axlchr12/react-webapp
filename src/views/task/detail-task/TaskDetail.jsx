@@ -44,7 +44,7 @@ const TaskDetail = () => {
                       <CFormSelect
                         aria-label="Default select example"
                         options={[
-                          { label: 'Select Service Type', value: '' },
+                          { label: '---', value: '' },
                           { label: 'Likes', value: '1' },
                         ]}
                       />
