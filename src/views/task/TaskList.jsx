@@ -2,7 +2,6 @@
 import { CCol, CRow } from '@coreui/react'
 import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import ButtonCustom from 'src/components/custom/ButtonCustom'
 import TableCustom from 'src/components/custom/TableCustom'
 
 const TaskList = () => {

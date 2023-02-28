@@ -16,7 +16,6 @@ import { useNavigate } from 'react-router-dom'
 import ButtonCustom from 'src/components/custom/ButtonCustom'
 
 const AddTask = () => {
-  const [isloading, setIsLoading] = useState(true)
   let navigate = useNavigate()
 
   return (
@@ -53,13 +52,11 @@ const AddTask = () => {
                   typeButton="button"
                   customFunction={() => navigate(-1)}
                   classList="btn btn-outline-danger mx-1"
-                  isloading={isloading}
                 />
                 <ButtonCustom
                   label="Proceed"
                   typeButton="submit"
                   classList="btn btn-outline-primary"
-                  isloading={isloading}
                 />
               </div>
             </CCardBody>

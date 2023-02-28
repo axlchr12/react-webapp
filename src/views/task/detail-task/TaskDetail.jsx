@@ -17,7 +17,6 @@ import ButtonCustom from 'src/components/custom/ButtonCustom'
 
 const TaskDetail = () => {
   const [urlLink, setUrlLink] = useState('http://localhost:3000/task-list/detail?id=1')
-  const [isloading, setIsLoading] = useState(true)
   let navigate = useNavigate()
   const [searchParams] = useSearchParams()
 
@@ -68,13 +67,11 @@ const TaskDetail = () => {
                     typeButton="button"
                     customFunction={() => navigate(-1)}
                     classList="btn btn-outline-danger mx-1"
-                    isloading={isloading}
                   />
                   <ButtonCustom
                     label="Update"
                     typeButton="submit"
                     classList="btn btn-outline-primary"
-                    isloading={isloading}
                   />
                 </div>
               )}

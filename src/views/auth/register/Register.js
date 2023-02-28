@@ -16,13 +16,12 @@ import {
   CFormTextarea,
   CRow,
 } from '@coreui/react'
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import ButtonCustom from 'src/components/custom/ButtonCustom'
 
 const Register = () => {
   const navigate = useNavigate()
-  const [isloading, setIsLoading] = useState(true)
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -144,7 +143,6 @@ const Register = () => {
                     label="Register"
                     typeButton="submit"
                     classList="btn btn-outline-primary"
-                    isloading={isloading}
                   />
                 </div>
               </CCardBody>
